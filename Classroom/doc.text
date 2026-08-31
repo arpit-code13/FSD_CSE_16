@@ -1,0 +1,19 @@
+git and git hub
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/arpit-code13/FSD_backend_3rds_sem.git
+git push -u origin main
+
+git status
+git log 
+
+
+//to create react file
+
+npm create vite@latest 
+
+//
+rafc to create direct jsx funtion 
