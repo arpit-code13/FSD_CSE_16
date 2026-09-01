@@ -55,3 +55,8 @@ Just use:
 git add .
 git commit -m "update code"
 git push
+
+
+////////////////////////////////
+the way to call in chorome 
+http://localhost:3000/sys
