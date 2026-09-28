@@ -1,10 +1,12 @@
 import React from "react";
-// import n from "../assets/n.webp";
-// export default Home;
-export const Home = () => {
+
+const Home = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className="container text-center mt-5">
+      <h1>Welcome to Home Page</h1>
+      <p>You have successfully logged in.</p>
     </div>
   );
 };
+
+export default Home;
