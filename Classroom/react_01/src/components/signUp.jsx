@@ -41,7 +41,7 @@ const SignUP = () => {
       console.log(response.data);
       alert("Signup successfully");
 
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.error(error);
       alert("Signup failed");
@@ -130,7 +130,7 @@ const SignUP = () => {
 
           <p className="text-center mt-4 mb-0">
             Already have an account?{" "}
-            <Link to="/" className="text-decoration-none">
+            <Link to="/login" className="text-decoration-none">
               Login
             </Link>
           </p>
