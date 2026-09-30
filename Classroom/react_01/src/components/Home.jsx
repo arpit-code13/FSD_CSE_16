@@ -25,7 +25,7 @@ const Home = () => {
       title: "Attack on Titan",
       genre: "Action • Dark Fantasy",
       image:
-        "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=600",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9-RNowOOQJV8YOgktkYROBKBlje_CyxQ4s_2JGyVKxg&s=10",
     },
   ];
 
@@ -35,7 +35,7 @@ const Home = () => {
       <nav className="navbar navbar-expand-lg anime-navbar">
         <div className="container">
           <Link className="navbar-brand anime-logo" to="/home">
-            AniVerse
+            Arpit Maurya
           </Link>
 
           <button
@@ -56,7 +56,7 @@ const Home = () => {
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="#">
+                <Link className="nav-link" to="/anime">
                   Anime
                 </Link>
               </li>
@@ -156,23 +156,45 @@ const Home = () => {
         </div>
       </section>
 
-      {/* GENRES */}
-      <section className="genre-section">
+      {/* ANIME AND MANGA */}
+
+      <section className="media-section">
         <div className="container">
           <div className="section-heading">
             <div>
               <span>EXPLORE</span>
-              <h2>Browse by Genre</h2>
+              <h2>Anime & Manga</h2>
             </div>
           </div>
 
-          <div className="genre-grid">
-            <div className="genre-card">⚔️ Action</div>
-            <div className="genre-card">✨ Fantasy</div>
-            <div className="genre-card">😂 Comedy</div>
-            <div className="genre-card">👻 Horror</div>
-            <div className="genre-card">❤️ Romance</div>
-            <div className="genre-card">🚀 Sci-Fi</div>
+          <div className="row g-4">
+            <div className="col-md-6">
+              <Link to="/anime" className="media-card anime-media">
+                <div>
+                  <span>WATCH</span>
+                  <h2>Anime</h2>
+                  <p>
+                    Discover your favorite anime series, characters and
+                    adventures.
+                  </p>
+                  <button>Explore Anime →</button>
+                </div>
+              </Link>
+            </div>
+
+            <div className="col-md-6">
+              <Link to="/manga" className="media-card manga-media">
+                <div>
+                  <span>READ</span>
+                  <h2>Manga</h2>
+                  <p>
+                    Explore manga stories, latest chapters and amazing
+                    characters.
+                  </p>
+                  <button>Explore Manga →</button>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

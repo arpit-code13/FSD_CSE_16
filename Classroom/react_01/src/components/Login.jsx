@@ -29,6 +29,7 @@ const Login = () => {
       alert("Login successfully");
 
       navigate("/home");
+      <Route path="/home" element={<Home />} />;
     } catch (error) {
       console.error(error);
       alert("Login failed");

@@ -18,7 +18,7 @@ const readDatabase = () => {
   }
 
   return JSON.parse(data);
-}; 
+};
 
 const writeDatabase = (data) => {
   fs.writeFileSync(databaseFile, JSON.stringify(data, null, 2));
