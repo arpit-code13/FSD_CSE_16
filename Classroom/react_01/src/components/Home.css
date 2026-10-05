@@ -236,7 +236,7 @@ body {
 }
 
 .anime-info p {
-  color: #858592;
+  color: #0707f8;
   margin-bottom: 15px;
 }
 
@@ -264,8 +264,8 @@ body {
 }
 
 .genre-card {
-  background: #15151e;
-  border: 1px solid #272731;
+  background: #0000fb;
+  border: 1px solid #0808f0;
   padding: 25px 15px;
   text-align: center;
   border-radius: 12px;

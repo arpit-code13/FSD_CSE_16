@@ -1,0 +1,1488 @@
+/* =========================================================
+   PREMIUM STUDENT MANAGEMENT SYSTEM UI
+========================================================= */
+
+:root {
+    --bg-main: #05070d;
+    --bg-secondary: #090d16;
+
+    --orange: #ff573d;
+    --orange-light: #ff765f;
+    --blue: #4da3ff;
+
+    --text-main: #f5f7fb;
+    --text-muted: #8d96a8;
+
+    --glass: rgba(255, 255, 255, 0.045);
+    --glass-border: rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 75, 50, 0.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(60, 130, 255, 0.07),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(255, 80, 50, 0.05),
+            transparent 35%
+        ),
+        #05070d;
+
+    color: var(--text-main);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ANIMATED BACKGROUND
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -3;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+
+    animation: gridMove 18s linear infinite;
+}
+
+
+@keyframes gridMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(70px);
+    }
+}
+
+
+/* =========================================================
+   FLOATING LIGHT
+========================================================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    left: -180px;
+    top: 20%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 78, 52, 0.13),
+            transparent 70%
+        );
+
+    filter: blur(40px);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    animation: floatingLight 10s ease-in-out infinite alternate;
+}
+
+
+@keyframes floatingLight {
+
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(100px, -70px);
+    }
+
+    100% {
+        transform: translate(40px, 120px);
+    }
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    min-height: 100vh;
+
+    position: relative;
+
+    isolation: isolate;
+
+    padding-bottom: 80px;
+}
+
+
+/* =========================================================
+   BACKGROUND ORBS
+========================================================= */
+
+.app::before,
+.app::after {
+    content: "";
+
+    position: fixed;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    filter: blur(70px);
+
+    opacity: 0.55;
+}
+
+
+.app::before {
+    width: 350px;
+    height: 350px;
+
+    right: -100px;
+    top: 15%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(58, 137, 255, 0.15),
+            transparent 70%
+        );
+
+    animation: orbOne 12s ease-in-out infinite;
+}
+
+
+.app::after {
+    width: 280px;
+    height: 280px;
+
+    left: 40%;
+    bottom: -100px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 82, 54, 0.14),
+            transparent 70%
+        );
+
+    animation: orbTwo 15s ease-in-out infinite;
+}
+
+
+@keyframes orbOne {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-80px, 100px);
+    }
+}
+
+
+@keyframes orbTwo {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(120px, -80px);
+    }
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+h1,
+h2,
+h3 {
+    letter-spacing: -0.03em;
+}
+
+
+h1 {
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #ff765f,
+            #ffffff
+        );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: titleGradient 5s linear infinite;
+}
+
+
+@keyframes titleGradient {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+/* =========================================================
+   GLASS CARDS
+========================================================= */
+
+.student-form,
+.search-student,
+.student-list {
+    position: relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid var(--glass-border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35),
+        inset 0 1px rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   CARD LIGHT SWEEP
+========================================================= */
+
+.student-form::before,
+.search-student::before,
+.student-list::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.055),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.8s ease;
+
+    pointer-events: none;
+}
+
+
+.student-form:hover::before,
+.search-student:hover::before,
+.student-list:hover::before {
+    left: 140%;
+}
+
+
+.student-form:hover,
+.search-student:hover,
+.student-list:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(255, 87, 61, 0.28);
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.45),
+        0 0 45px rgba(255, 82, 54, 0.07);
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+input,
+select {
+    background:
+        rgba(0, 0, 0, 0.28);
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.25s ease,
+        background 0.3s ease;
+}
+
+
+input::placeholder {
+    color: #697386;
+}
+
+
+input:hover,
+select:hover {
+    border-color:
+        rgba(255, 87, 61, 0.35);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+}
+
+
+input:focus,
+select:focus {
+    border-color: var(--orange);
+
+    background:
+        rgba(255, 87, 61, 0.035);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 87, 61, 0.08),
+        0 0 30px rgba(255, 87, 61, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+    position: relative;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent,
+            rgba(255, 255, 255, 0.25),
+            transparent
+        );
+
+    transform: skewX(-25deg);
+
+    transition: left 0.6s ease;
+}
+
+
+button:hover::before {
+    left: 130%;
+}
+
+
+button:hover {
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 10px 30px rgba(255, 82, 54, 0.2);
+}
+
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.student-list {
+    overflow-x: auto;
+}
+
+
+.student-list table {
+    width: 100%;
+
+    border-collapse: separate;
+
+    border-spacing: 0 7px;
+}
+
+
+.student-list thead th {
+    color: #8e97a8;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
+}
+
+
+.student-list tbody tr {
+    position: relative;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.student-list tbody tr td {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    transition:
+        border-color 0.3s ease;
+}
+
+
+.student-list tbody tr:hover {
+    transform: translateX(6px);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 82, 54, 0.08),
+            rgba(255, 82, 54, 0.015)
+        );
+
+    box-shadow:
+        -4px 0 0 var(--orange),
+        0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.status {
+    position: relative;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.03em;
+
+    background:
+        rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.status::before {
+    content: "";
+
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: #45e88a;
+
+    box-shadow:
+        0 0 10px #45e88a;
+
+    animation: statusPulse 1.8s infinite;
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================================================
+   SEARCH BAR
+========================================================= */
+
+.search-student input {
+    transition:
+        width 0.4s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.search-student input:focus {
+    box-shadow:
+        0 0 25px rgba(255, 82, 54, 0.12);
+}
+
+
+/* =========================================================
+   PAGE LOAD ANIMATION
+========================================================= */
+
+.student-form,
+.search-student,
+.student-list {
+    animation:
+        cardAppear 0.8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+
+.student-form {
+    animation-delay: 0.05s;
+}
+
+
+.search-student {
+    animation-delay: 0.15s;
+}
+
+
+.student-list {
+    animation-delay: 0.25s;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TEXT REVEAL
+========================================================= */
+
+p,
+label,
+th,
+td {
+    transition:
+        color 0.25s ease;
+}
+
+
+label:hover {
+    color: #ff765f;
+}
+
+
+/* =========================================================
+   CUSTOM SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: #05070d;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            #ff573d,
+            #b83220
+        );
+
+    border-radius: 20px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff765f;
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+    background: rgba(255, 82, 54, 0.35);
+
+    color: white;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    body::before {
+        background-size: 45px 45px;
+    }
+
+    .student-form,
+    .search-student,
+    .student-list {
+        border-radius: 15px;
+    }
+
+    .student-form:hover,
+    .search-student:hover,
+    .student-list:hover {
+        transform: translateY(-3px);
+    }
+
+    .student-list tbody tr:hover {
+        transform: translateX(2px);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+
+
+/* =========================================================
+   🔥 ULTRA PREMIUM BACKGROUND
+========================================================= */
+
+.background-effect {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 1;
+
+    mix-blend-mode: screen;
+}
+
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    position: relative;
+
+    isolation: isolate;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 75, 50, 0.055),
+            transparent 45%
+        ),
+        #05070d;
+}
+
+
+/* =========================================================
+   ANIMATED GRID
+========================================================= */
+
+.app {
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    animation:
+        gridMove 12s linear infinite;
+}
+
+
+@keyframes gridMove {
+
+    from {
+        background-position:
+            0 0,
+            0 0;
+    }
+
+    to {
+        background-position:
+            55px 55px,
+            55px 55px;
+    }
+}
+
+
+/* =========================================================
+   BIG ORANGE AURORA
+========================================================= */
+
+.app::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 750px;
+    height: 750px;
+
+    left: -280px;
+    top: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 55, 35, 0.32) 0%,
+            rgba(255, 75, 45, 0.18) 25%,
+            rgba(255, 75, 45, 0.08) 45%,
+            transparent 72%
+        );
+
+    filter: blur(35px);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    animation:
+        orangeAurora 9s ease-in-out infinite alternate;
+}
+
+
+@keyframes orangeAurora {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            translate(180px, 80px)
+            scale(1.15);
+    }
+
+    60% {
+        transform:
+            translate(300px, 220px)
+            scale(0.95);
+    }
+
+    100% {
+        transform:
+            translate(100px, 350px)
+            scale(1.25);
+    }
+}
+
+
+/* =========================================================
+   BLUE AURORA
+========================================================= */
+
+.app::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    right: -260px;
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(35, 120, 255, 0.30) 0%,
+            rgba(40, 100, 255, 0.16) 28%,
+            rgba(40, 100, 255, 0.07) 48%,
+            transparent 72%
+        );
+
+    filter: blur(40px);
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    animation:
+        blueAurora 10s ease-in-out infinite alternate;
+}
+
+
+@keyframes blueAurora {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    30% {
+        transform:
+            translate(-150px, -80px)
+            scale(1.15);
+    }
+
+    60% {
+        transform:
+            translate(-280px, -180px)
+            scale(0.9);
+    }
+
+    100% {
+        transform:
+            translate(-80px, -300px)
+            scale(1.2);
+    }
+}
+
+
+/* =========================================================
+   CENTER LIGHT
+========================================================= */
+
+.app {
+    --center-glow:
+        radial-gradient(
+            circle,
+            rgba(255, 80, 55, 0.10),
+            transparent 65%
+        );
+}
+
+
+.app > * {
+    position: relative;
+}
+
+
+/* =========================================================
+   FLOATING NEON LIGHT
+========================================================= */
+
+.app .student-form::after,
+.app .search-student::after,
+.app .student-list::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 75, 50, 0.08),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.5s ease;
+}
+
+
+.app .student-form:hover::after,
+.app .search-student:hover::after,
+.app .student-list:hover::after {
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   NEON CORNER LIGHTS
+========================================================= */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 300px;
+    height: 300px;
+
+    right: 20%;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 80, 55, 0.15),
+            transparent 70%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+
+    z-index: -5;
+
+    animation:
+        topLight 8s ease-in-out infinite alternate;
+}
+
+
+@keyframes topLight {
+
+    0% {
+        transform:
+            translateX(-100px)
+            scale(0.8);
+    }
+
+    100% {
+        transform:
+            translateX(200px)
+            scale(1.3);
+    }
+}
+
+
+/* =========================================================
+   SECOND FLOATING LIGHT
+========================================================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    left: 35%;
+    bottom: -200px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(80, 130, 255, 0.14),
+            transparent 70%
+        );
+
+    filter: blur(45px);
+
+    pointer-events: none;
+
+    z-index: -5;
+
+    animation:
+        bottomLight 11s ease-in-out infinite alternate;
+}
+
+
+@keyframes bottomLight {
+
+    0% {
+        transform:
+            translateX(-200px)
+            scale(0.8);
+    }
+
+    100% {
+        transform:
+            translateX(250px)
+            scale(1.4);
+    }
+}
+
+
+/* =========================================================
+   MOVING HORIZONTAL LIGHT BEAM
+========================================================= */
+
+.app {
+    --beam:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 75, 50, 0.06),
+            rgba(255, 255, 255, 0.03),
+            rgba(255, 75, 50, 0.06),
+            transparent
+        );
+}
+
+
+.app > .background-effect {
+
+    box-shadow:
+        0 0 100px rgba(255, 70, 45, 0.08);
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.student-form,
+.search-student,
+.student-list {
+
+    position: relative;
+
+    border-color:
+        rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+
+.student-form:hover,
+.search-student:hover,
+.student-list:hover {
+
+    border-color:
+        rgba(255, 85, 60, 0.35);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.55),
+        0 0 40px rgba(255, 75, 50, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   GLOWING BORDER ON HOVER
+========================================================= */
+
+.student-form::before,
+.search-student::before,
+.student-list::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -1px;
+
+    border-radius: inherit;
+
+    padding: 1px;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(255, 80, 55, 0.5),
+            transparent,
+            rgba(70, 130, 255, 0.4),
+            transparent
+        );
+
+    background-size: 300% 300%;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.4s ease;
+
+    animation:
+        borderFlow 5s linear infinite;
+
+    pointer-events: none;
+
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+
+    mask-composite: exclude;
+}
+
+
+.student-form:hover::before,
+.search-student:hover::before,
+.student-list:hover::before {
+
+    opacity: 1;
+}
+
+
+@keyframes borderFlow {
+
+    0% {
+        background-position:
+            0% 50%;
+    }
+
+    50% {
+        background-position:
+            100% 50%;
+    }
+
+    100% {
+        background-position:
+            0% 50%;
+    }
+}
+
+
+/* =========================================================
+   BUTTON NEON
+========================================================= */
+
+button {
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+
+button:hover {
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    filter:
+        brightness(1.12);
+
+    box-shadow:
+        0 10px 35px rgba(255, 70, 45, 0.30),
+        0 0 25px rgba(255, 70, 45, 0.15);
+}
+
+
+/* =========================================================
+   INPUT NEON
+========================================================= */
+
+input:focus,
+select:focus {
+
+    border-color:
+        rgba(255, 80, 55, 0.8) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 75, 50, 0.08),
+        0 0 25px rgba(255, 75, 50, 0.18),
+        inset 0 0 20px rgba(255, 75, 50, 0.03);
+}
+
+
+/* =========================================================
+   TABLE ROW LIGHT
+========================================================= */
+
+.student-list tbody tr {
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.student-list tbody tr:hover {
+
+    transform:
+        translateX(7px);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 70, 45, 0.10),
+            rgba(255, 70, 45, 0.025),
+            transparent
+        );
+
+    box-shadow:
+        -4px 0 0 #ff573d,
+        0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================================
+   TEXT GLOW
+========================================================= */
+
+h1 {
+
+    text-shadow:
+        0 0 25px rgba(255, 80, 55, 0.18);
+}
+
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+::selection {
+
+    background:
+        rgba(255, 75, 50, 0.4);
+
+    color: white;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #05070d;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background:
+        linear-gradient(
+            #ff573d,
+            #ff3020
+        );
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0 0 10px rgba(255, 70, 45, 0.5);
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #ff765f;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .background-effect {
+        opacity: 0.7;
+    }
+
+    .app::before,
+    .app::after {
+
+        filter:
+            blur(55px);
+
+        opacity:
+            0.8;
+    }
+}
