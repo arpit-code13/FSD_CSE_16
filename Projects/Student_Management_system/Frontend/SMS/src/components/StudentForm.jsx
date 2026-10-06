@@ -48,14 +48,14 @@ function StudentForm({ editingStudent, onStudentSaved, onCancelEdit }) {
     try {
       if (editingStudent) {
         const response = await axios.put(
-          `http://localhost:3000/api/students/${editingStudent.id}`,
+          `https://fsd-cse-16.onrender.com/api/students/${editingStudent.id}`,
           form,
         );
 
         setMessage(response.data.message);
       } else {
         const response = await axios.post(
-          "http://localhost:3000/api/students",
+          "https://fsd-cse-16.onrender.com/api/students",
           form,
         );
 

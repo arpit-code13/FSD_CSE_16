@@ -14,7 +14,7 @@ function App() {
 
   const fetchStudents = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/students");
+      const response = await axios.get("https://fsd-cse-16.onrender.com/");
 
       setStudents(response.data);
       setSearchResults(response.data);

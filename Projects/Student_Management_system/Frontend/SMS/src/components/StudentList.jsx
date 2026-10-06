@@ -11,7 +11,7 @@ function StudentList({ students, onEdit, refresh }) {
     }
 
     try {
-      await axios.delete(`http://localhost:3000/api/students/${id}`);
+      await axios.delete(`https://fsd-cse-16.onrender.com/api/students/${id}`);
 
       refresh();
     } catch (error) {
