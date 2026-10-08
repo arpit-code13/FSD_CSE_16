@@ -2,7 +2,7 @@
 
 A modern, offline-first personal notes manager. Capture, organise, search and edit notes in a clean interface that works on phones and desktops. Everything is stored in the browser, so there is no backend and nothing to configure.
 
-**Live demo:** `PASTE_YOUR_VERCEL_URL_HERE`
+**Live demo:** `fsd-cse-16-i7it.vercel.app`
 
 ## Project Description
 
@@ -10,7 +10,12 @@ NoteFlow lets you write notes (with Markdown), file them under categories, tag t
 
 ## Screenshots
 
-_Add screenshots here after deploying (light mode, dark mode, editor, mobile)._
+<img width="1920" height="1200" alt="Screenshot 2026-10-09 014250" src="https://github.com/user-attachments/assets/ec917846-255a-43c1-ba79-d97d235df722" />
+
+<img width="1920" height="1200" alt="Screenshot 2026-10-09 014300" src="https://github.com/user-attachments/assets/0228453a-21d2-4fd0-b189-f86f1c413ae6" />
+
+<img width="1904" height="1077" alt="Screenshot 2026-10-09 014235" src="https://github.com/user-attachments/assets/a3e77d87-3393-4244-992e-9b01f17fdb36" />
+
 
 ## Features
 
