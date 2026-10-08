@@ -9,12 +9,15 @@ A modern, offline-first personal notes manager. Capture, organise, search and ed
 NoteFlow lets you write notes (with Markdown), file them under categories, tag them, colour-code them, pin the important ones, and find anything instantly with combined search, filters and sorting. Notes persist across refreshes and browser restarts using `localStorage`.
 
 ## Screenshots
+<img width="1904" height="1077" alt="Screenshot 2026-10-09 014235" src="https://github.com/user-attachments/assets/a3e77d87-3393-4244-992e-9b01f17fdb36" />
 
 <img width="1920" height="1200" alt="Screenshot 2026-10-09 014250" src="https://github.com/user-attachments/assets/ec917846-255a-43c1-ba79-d97d235df722" />
 
 <img width="1920" height="1200" alt="Screenshot 2026-10-09 014300" src="https://github.com/user-attachments/assets/0228453a-21d2-4fd0-b189-f86f1c413ae6" />
 
-<img width="1904" height="1077" alt="Screenshot 2026-10-09 014235" src="https://github.com/user-attachments/assets/a3e77d87-3393-4244-992e-9b01f17fdb36" />
+<img width="717" height="1600" alt="WhatsApp Image 2026-10-09 at 1 46 39 AM" src="https://github.com/user-attachments/assets/c31e3286-cc6c-4757-8cef-7d87054558b5" />
+
+
 
 
 ## Features
