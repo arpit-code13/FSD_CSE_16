@@ -2,7 +2,7 @@
 
 A modern, offline-first personal notes manager. Capture, organise, search and edit notes in a clean interface that works on phones and desktops. Everything is stored in the browser, so there is no backend and nothing to configure.
 
-**Live demo:** `fsd-cse-16-i7it.vercel.app`
+**Live demo:** https://fsd-cse-16-i7it.vercel.app/
 
 ## Project Description
 
